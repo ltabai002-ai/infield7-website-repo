@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="legal-page">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms &amp; Conditions — inFIELD7</title>
+<meta name="description" content="Terms and conditions for the inFIELD7 Android app and admin dashboard." />
+<link rel="icon" type="image/png" href="assets/infield7-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Header -->
+<header class="nav scrolled" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo" aria-label="inFIELD7 home">
+      <img class="logo-img" src="assets/infield7-logo.png" alt="inFIELD7" />
+      <span class="logo-word">inFIELD7</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#product">Product</a>
+      <a href="index.html#solutions">Solutions</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how">How It Works</a>
+      <a href="index.html#pricing">Hours &amp; Reports</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="index.html#demo" class="btn btn-primary">Book a Demo</a>
+      <button class="hamburger" id="hamb" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <div class="wrap">
+      <a href="index.html#product">Product</a>
+      <a href="index.html#solutions">Solutions</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how">How It Works</a>
+      <a href="index.html#pricing">Hours &amp; Reports</a>
+      <a href="index.html#demo" class="btn btn-primary">Book a Demo</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <a href="index.html" class="legal-back">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
+    Back to main site
+  </a>
+
+  <h1>Terms &amp; Conditions — inFIELD7</h1>
+  <div class="legal-eff">Effective date: 17 September 2026</div>
+
+  <p>These terms are an agreement for use of the inFIELD7 app and admin dashboard. Employer name/logo inside the app is workplace branding only.</p>
+
+  <h2>1. Acceptance</h2>
+  <p>Using the app means you agree to these terms and the Privacy Policy. If not, uninstall.</p>
+
+  <h2>2. Who may use it</h2>
+  <p>Employees and authorised staff of the organisation that issued the login. Access can be removed when employment ends.</p>
+
+  <h2>3. Account</h2>
+  <p>Use your real name and registered phone. Do not use someone else's identity. Keep your MPIN secret.</p>
+
+  <h2>4. Attendance rules</h2>
+  <p>Clock-in/out must match real work. Location verifies office presence. Misuse may lead to action under company policy.</p>
+
+  <h2>5. Location</h2>
+  <p>Location, including background location on shift, is used as described in the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h2>6. Acceptable use</h2>
+  <p>Do not disrupt, reverse-engineer, or misuse the Service.</p>
+
+  <h2>7. Data</h2>
+  <p>Dashboard records belong to the organisation using inFIELD7. The app is for work use.</p>
+
+  <h2>8. Updates</h2>
+  <p>You may be asked or required to update from Google Play.</p>
+
+  <h2>9. Availability</h2>
+  <p>We do not guarantee the Service is always online.</p>
+
+  <h2>10. Liability</h2>
+  <p>To the extent allowed by Indian law, we are not liable for indirect loss from using or not using the app.</p>
+
+  <h2>11. Termination</h2>
+  <p>The office may disable access. You may uninstall at any time.</p>
+
+  <h2>12. Changes</h2>
+  <p>Posted on this page. Continued use means you accept them.</p>
+
+  <h2>13. Contact</h2>
+  <p><a href="mailto:kashyapnandan2021@gmail.com">kashyapnandan2021@gmail.com</a> · +91 6000683808 · BlueAnt Digitech, Opposite Brahmaputra Board, Near Jawa Showroom, Basistha, Guwahati, Assam, India</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bot" style="margin-top:0; padding-top:0; border-top:0;">
+      <span>© 2026 inFIELD7. All rights reserved.</span>
+      <span><a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var mm = document.getElementById('mm');
+  var hamb = document.getElementById('hamb');
+  if (hamb && mm) {
+    hamb.addEventListener('click', function () {
+      var open = mm.classList.toggle('open');
+      hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mm.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') mm.classList.remove('open');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
