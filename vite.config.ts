@@ -6,5 +6,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   server: { port: 8080 },
+  ssr: { noExternal: ["h3-v2"] },
   plugins: [tsconfigPaths(), tailwindcss(), tanstackStart(), react()],
 });
