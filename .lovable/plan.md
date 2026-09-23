@@ -43,7 +43,8 @@ Rebuild the supplied static inFIELD7 website as a Lovable-compatible React and T
 
 ## Verification
 
-- Compare the original and migrated pages at desktop, tablet, and mobile widths.
-- Exercise the complete questionnaire and WhatsApp-link generation, skip/replay paths, mobile menu, anchor links, legal navigation, and Google Play link.
-- Verify every image loads, all three routes open directly, legacy `.html` URLs redirect, responsive layouts do not overlap, reduced-motion remains usable, and browser console/network logs are clean.
+- Compare the original and migrated pages section-by-section at desktop, laptop, tablet, and mobile widths, checking header geometry, logo/navigation alignment, typography, colors, gradients, cards, controls, icons, imagery, phone/dashboard visuals, spacing, and footer. Use the original CSS values rather than approximations.
+- Exercise the complete questionnaire (all steps, selection modes, back/continue, validation, solution matching, personalization), storage behavior, WhatsApp-link generation, skip/replay and keyboard paths, presentation timing, sticky header, mobile menu, smooth section links, legal navigation, and every external/email/telephone/Google Play link.
+- Verify the bespoke reveal, stagger, word, counter, chart, progress, marker, phone-overlay, hover, and presentation animations against the original rather than substituting generic motion.
+- Verify every image and font loads, all three routes open directly, legacy `.html` URLs redirect, responsive layouts have no unintended horizontal overflow, TypeScript is clean, and browser console/network logs are clean.
 - Confirm the final preview build succeeds before completion.
