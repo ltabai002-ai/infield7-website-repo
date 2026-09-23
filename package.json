@@ -1,0 +1,26 @@
+{
+  "name": "/dev-server",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@tanstack/react-query": "^5",
+    "@tanstack/react-router": "^1",
+    "@tanstack/react-router-devtools": "^1",
+    "@tanstack/react-start": "^1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "react": "^19",
+    "react-dom": "^19",
+    "tailwindcss": "^4",
+    "vite": "^7",
+    "vite-tsconfig-paths": "^6.1.1",
+    "zod": "^4.6.5"
+  }
+}

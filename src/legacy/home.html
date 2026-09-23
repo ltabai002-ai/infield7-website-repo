@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>inFIELD7 — Manage Your Workforce. Smarter.</title>
+<meta name="description" content="inFIELD7 is a workforce attendance and field tracking platform. Manage employee clock-in with geofence, on-shift live location, leave, holidays, shift history and attendance hours — all from one admin dashboard."/>
+<meta name="keywords" content="workforce management, field employee tracking, employee attendance, live location tracking, geofenced attendance, attendance hours"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="inFIELD7 — Manage Your Workforce. Smarter."/>
+<meta property="og:description" content="One platform. Complete workforce visibility. Geofenced attendance, on-shift live location, leave, holidays, and attendance hours."/>
+
+<link rel="icon" type="image/png" href="assets/infield7-logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body class="intro-open">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     INTRO OVERLAY — 3-step interactive entry
+     ============================================================ -->
+<div class="intro" id="intro" aria-modal="true" role="dialog" aria-label="Welcome — quick questions">
+  <div class="intro-top">
+    <a href="#" class="intro-logo" aria-label="inFIELD7 home">
+      <img src="assets/infield7-logo.png" alt="inFIELD7 logo" /> inFIELD7
+    </a>
+    <div class="intro-progress" aria-hidden="true">
+      <span data-step="1" class="active"></span>
+      <span data-step="2"></span>
+      <span data-step="3"></span>
+    </div>
+    <button type="button" class="intro-skip" id="introSkip">
+      Skip now
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </button>
+  </div>
+
+  <div class="intro-body">
+    <!-- STEP 1 — business type (single-select, auto-advance) -->
+    <div class="intro-step" data-step="1">
+      <div class="intro-eyebrow">Step 1 of 3</div>
+      <h2 class="intro-h">What kind of business do you run?</h2>
+      <p class="intro-sub">Pick one. We'll tailor the next question to you.</p>
+      <div class="intro-grid biz" role="group" aria-label="Business type" id="bizGrid">
+        <button type="button" class="intro-card sm" data-b="Service Centers">
+          <span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6.5a4 4 0 105.5 5.5l-9.8 9.8-2.8-2.8L16.5 9.7"/><path d="M4 4l4 4"/></svg></span>
+          <span class="intro-txt">Service Center</span>
+        </button>
+        <button type="button" class="intro-card sm" data-b="Construction">
+          <span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></span>
+          <span class="intro-txt">Construction</span>
+        </button>
+        <button type="button" class="intro-card sm" data-b="Healthcare">
+          <span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="10"/></svg></span>
+          <span class="intro-txt">Healthcare</span>
+        </button>
+        <button type="button" class="intro-card sm" data-b="Field Operations">
+          <span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
+          <span class="intro-txt">Field Operations</span>
+        </button>
+        <button type="button" class="intro-card sm" data-b="Maintenance">
+          <span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 4 4 .6-3 3 .7 4.4L12 12l-3.7 2 .7-4.4-3-3L10 6z"/></svg></span>
+          <span class="intro-txt">Maintenance</span>
+        </button>
+        <button type="button" class="intro-card sm" data-b="Logistics">
+          <span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.5"/><circle cx="18.5" cy="18" r="1.5"/></svg></span>
+          <span class="intro-txt">Logistics</span>
+        </button>
+        <button type="button" class="intro-card sm" data-b="Other">
+          <span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10a3 3 0 116 0c0 2-3 2-3 4"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg></span>
+          <span class="intro-txt">Other</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2 — business-specific questions (multi-select, dynamic) -->
+    <div class="intro-step" data-step="2" hidden>
+      <div class="intro-eyebrow"><span id="step2Eyebrow">Step 2 of 3</span></div>
+      <h2 class="intro-h" id="step2Heading">Which of these sound familiar?</h2>
+      <p class="intro-sub">Select all that apply.</p>
+      <div class="intro-grid" role="group" aria-label="Business-specific questions" id="probGrid"></div>
+      <div class="intro-cta">
+        <button type="button" class="btn btn-ghost" id="step2Back">
+          <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
+          Back
+        </button>
+        <button type="button" class="btn btn-primary" id="step2Next" disabled>
+          Continue
+          <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3 — "We solved it all" + form -->
+    <div class="intro-step" data-step="3" hidden>
+      <div class="intro-eyebrow">Step 3 of 3</div>
+      <h2 class="intro-h">We've solved it all.</h2>
+      <p class="intro-sub" id="summaryLine">Get a personalized demo built for your business.</p>
+
+      <div class="intro-form-wrap">
+        <form class="intro-form" id="leadForm" novalidate>
+          <label class="intro-field">
+            <span class="intro-field-l">Business name</span>
+            <input type="text" name="business" id="leadBusiness" autocomplete="organization" placeholder="e.g. Kumar Motors" required />
+          </label>
+          <label class="intro-field">
+            <span class="intro-field-l">Contact name</span>
+            <input type="text" name="contact" id="leadContact" autocomplete="name" placeholder="Your full name" required />
+          </label>
+          <div class="intro-field">
+            <label class="intro-field-l" for="leadPhone">Phone number</label>
+            <div class="intro-phone-wrap">
+              <span class="intro-phone-cc" aria-hidden="true">+91</span>
+              <input id="leadPhone" type="tel" name="phone" maxlength="15" autocomplete="tel-national" placeholder="98765 43210" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary intro-form-cta" id="leadSubmitBtn" disabled>
+            Show me the platform
+            <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </button>
+          <p class="intro-form-fine">We'll call you within an hour. No spam.</p>
+        </form>
+
+        <aside class="intro-solutions">
+          <div class="intro-solutions-l">Built for your team</div>
+          <div class="intro-chips" id="solutionChips" aria-live="polite"></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navy reveal panel (shown between intro and main site) -->
+<div class="reveal-panel" id="revealPanel" hidden aria-hidden="true" tabindex="-1">
+  <div class="rp-inner">
+    <img class="rp-logo" src="assets/infield7-logo.png" alt="inFIELD7 logo" />
+    <div class="rp-small">PRESENTING</div>
+    <div class="rp-big" aria-label="inFIELD7">
+      <span class="rp-w">in</span><span class="rp-w">FIELD</span><span class="rp-w rp-accent">7</span>
+    </div>
+    <div class="rp-sub">One Platform. Complete Workforce Visibility.</div>
+  </div>
+</div>
+
+<!-- Design-time Tweaks (hidden in production) -->
+<div class="dev-tweaks" id="devTweaks" style="display: none !important;" aria-hidden="true">
+  <label>
+    <input type="checkbox" id="alwaysIntro" />
+    <span>Always show intro</span>
+  </label>
+  <button type="button" id="replayIntro">Replay intro</button>
+</div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo" aria-label="inFIELD7 home">
+      <img class="logo-img" src="assets/infield7-logo.png" alt="inFIELD7" />
+      <span class="logo-word">inFIELD7</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#product">Product</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Hours &amp; Reports</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#demo" class="btn btn-primary">Book a Demo</a>
+      <button class="hamburger" id="hamb" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <div class="wrap">
+      <a href="#product">Product</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Hours &amp; Reports</a>
+      <a href="#demo" class="btn btn-primary">Book a Demo</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     1 · HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="reveal">
+      <div class="hero-eyebrow" id="heroEyebrow" hidden></div>
+      <h1>Manage Your Workforce. Smarter.</h1>
+      <div class="line-blue">One Platform. Complete Workforce Visibility.</div>
+      <p class="lead">Manage employee attendance with geofenced clock-in, on-shift live location, leaves, holidays and shift history — all from one simple dashboard.</p>
+      <div class="hero-actions">
+        <a href="#demo" class="btn btn-primary">
+          Book a Demo
+          <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#how" class="btn btn-outline">
+          <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4 3v10l9-5-9-5z"/></svg>
+          See How It Works
+        </a>
+      </div>
+      <div class="hero-checks">
+        <span><span class="dot"></span> Live location</span>
+        <span><span class="dot"></span> Real-time attendance</span>
+        <span><span class="dot"></span> Attendance hours</span>
+      </div>
+    </div>
+
+    <div class="reveal hero-phone-wrap">
+      <!-- Big animated phone (hero) -->
+      <div class="hero-phone" aria-label="inFIELD7 mobile app">
+        <!-- Ambient rings behind the phone -->
+        <div class="hp-rings" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="hp-float">
+          <div class="hp-frame" role="img" aria-label="inFIELD7 attendance app screen">
+            <div class="hp-notch"></div>
+            <div class="hp-screen">
+              <img src="assets/mobile-ref-hd-2x.png" alt="inFIELD7 mobile app — attendance home screen" />
+
+              <!-- Live overlays on top of the screenshot -->
+              <div class="hp-overlay">
+                <div class="hp-live-pill" aria-hidden="true">
+                  <span class="hp-live-dot"></span>
+                  LIVE
+                </div>
+                <div class="hp-fp-ripple" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="hp-toast" aria-hidden="true">
+                  <div class="hp-toast-ic">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l4 4 8-8"/></svg>
+                  </div>
+                  <div>
+                    <div class="hp-toast-t">Checked in</div>
+                    <div class="hp-toast-s">Site B · 08:04</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hp-side hp-side-l"></div>
+            <div class="hp-side hp-side-r"></div>
+            <div class="hp-power"></div>
+          </div>
+        </div>
+
+        <!-- Floating chip: live team count -->
+        <div class="hp-chip hp-chip-tl" aria-hidden="true">
+          <div class="hp-chip-ic hp-chip-ic-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+          </div>
+          <div>
+            <div class="hp-chip-l">On duty now</div>
+            <div class="hp-chip-v"><span data-count="32">0</span> / 150</div>
+          </div>
+        </div>
+
+        <!-- Floating chip: hours -->
+        <div class="hp-chip hp-chip-br" aria-hidden="true">
+          <div class="hp-chip-ic hp-chip-ic-amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div class="hp-chip-l">Monthly hours</div>
+            <div class="hp-chip-v"><span data-count="192">0</span> hrs</div>
+          </div>
+        </div>
+      </div>
+      <div class="hp-badge" aria-hidden="true">
+        <span class="hp-dot"></span>
+        <span>Available on Android / Google Play</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2 · PROBLEM
+     ============================================================ -->
+<section id="product">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">The problem</div>
+      <h2 class="reveal" style="margin-top:12px;">Managing people across multiple locations shouldn't be complicated.</h2>
+    </div>
+    <div class="prob-cards">
+      <div class="prob-card reveal">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2l3 6 6 1-4.5 4 1 6-5.5-3-5.5 3 1-6L3 9l6-1z"/></svg></div>
+        <div class="lbl">Service center</div>
+        <div class="q">Who is available right now?</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div>
+        <div class="lbl">Construction site</div>
+        <div class="q">Who is on-site and who is absent?</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 21s-7-4.5-7-11a7 7 0 0114 0c0 6.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="lbl">Hospital / field ops</div>
+        <div class="q">Where are your teams and what are they doing?</div>
+      </div>
+    </div>
+
+    <div class="prob-foot reveal">
+      <p>Spreadsheets, calls and manual updates aren't enough.</p>
+      <div class="big">That's where we come in.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3 · ONE APP
+     ============================================================ -->
+<section id="solutions" class="bg-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">One place</div>
+      <h2 class="reveal" style="margin-top:12px;">One App. Complete Workforce Visibility.</h2>
+    </div>
+
+    <div class="one-app">
+      <!-- Connector lines -->
+      <svg class="one-app-conn" viewBox="0 0 900 500" preserveAspectRatio="none">
+        <!-- Left connectors -->
+        <path d="M260 90 Q 380 90 400 200"/>
+        <path d="M260 250 Q 380 250 400 260"/>
+        <path d="M260 410 Q 380 410 400 320"/>
+        <!-- Right connectors -->
+        <path d="M640 90 Q 520 90 500 200"/>
+        <path d="M640 250 Q 520 250 500 260"/>
+        <path d="M640 410 Q 520 410 500 320"/>
+      </svg>
+
+      <!-- Left labels -->
+      <div class="one-app-side left">
+        <div class="oa-item reveal">
+          <div class="oa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></div>
+          <div><div class="oa-t">Employees</div><div class="oa-s">Directory · shifts · roles</div></div>
+        </div>
+        <div class="oa-item reveal">
+          <div class="oa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 21s-7-4.5-7-11a7 7 0 0114 0c0 6.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><div class="oa-t">Location</div><div class="oa-s">Live map · geofence</div></div>
+        </div>
+        <div class="oa-item reveal">
+          <div class="oa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+          <div><div class="oa-t">Attendance</div><div class="oa-s">Check-in · shift hours</div></div>
+        </div>
+      </div>
+
+      <!-- Center phone -->
+      <div class="one-app-phone reveal">
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="phone-screen">
+            <div class="p-head"><span>9:41</span><span>Team today</span></div>
+            <h4 style="font-size:14px;">Dashboard</h4>
+            <div class="p-kpi">
+              <div class="k"><div class="l">Present</div><div class="v">32</div></div>
+              <div class="k"><div class="l">Absent</div><div class="v">5</div></div>
+              <div class="k"><div class="l">On leave</div><div class="v">3</div></div>
+              <div class="k"><div class="l">Offices</div><div class="v">4</div></div>
+            </div>
+            <div style="margin-top:8px;">
+              <div style="font-size:9px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; margin-bottom:6px;">Live team</div>
+              <div class="p-list">
+                <div class="row"><span class="av">RS</span><span class="name">Rahul S.</span><span class="d g"></span></div>
+                <div class="row"><span class="av">MK</span><span class="name">Meera K.</span><span class="d b"></span></div>
+                <div class="row"><span class="av">AP</span><span class="name">Arjun P.</span><span class="d o"></span></div>
+                <div class="row"><span class="av">YB</span><span class="name">Yousef B.</span><span class="d g"></span></div>
+                <div class="row"><span class="av">PN</span><span class="name">Priya N.</span><span class="d g"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right labels -->
+      <div class="one-app-side right">
+        <div class="oa-item reveal">
+          <div class="oa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+          <div><div class="oa-t">Leaves</div><div class="oa-s">Requests · approvals</div></div>
+        </div>
+        <div class="oa-item reveal">
+          <div class="oa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div><div class="oa-t">Holidays</div><div class="oa-s">Company calendar · days off</div></div>
+        </div>
+        <div class="oa-item reveal">
+          <div class="oa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="oa-t">Hours</div><div class="oa-s">Shift records · export</div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="one-app-caption reveal">Everything managers need to monitor the workforce — in one place.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     4 · LIVE LOCATION
+     ============================================================ -->
+<section id="features">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <div class="eyebrow">Live location</div>
+        <h2 style="margin-top:12px;">Know Where Your Team Is.</h2>
+        <p class="lead" style="margin-top:16px;">Real-time visibility into field employees and their locations.</p>
+        <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>See every technician, engineer or field agent on one live map.</span></li>
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Verify on-duty staff are at designated workplaces or field sites.</span></li>
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Set geofences per site. Get notified when someone leaves the zone.</span></li>
+        </ul>
+        <a href="#demo" class="btn btn-outline" style="margin-top:32px;">View Live Workforce
+          <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <div class="loc-panel">
+          <div class="loc-map">
+            <svg style="position:absolute; inset:0; width:100%; height:100%;" viewBox="0 0 500 340" preserveAspectRatio="none">
+              <path d="M0 100 Q150 140 300 80 T500 100" stroke="#DDE4F0" stroke-width="16" fill="none"/>
+              <path d="M0 100 Q150 140 300 80 T500 100" stroke="#F1F5FB" stroke-width="10" fill="none"/>
+              <path d="M150 0 Q170 140 220 240 T300 340" stroke="#DDE4F0" stroke-width="14" fill="none"/>
+              <path d="M150 0 Q170 140 220 240 T300 340" stroke="#F1F5FB" stroke-width="9" fill="none"/>
+              <path d="M380 0 L360 340" stroke="#DDE4F0" stroke-width="12" fill="none"/>
+              <path d="M380 0 L360 340" stroke="#F1F5FB" stroke-width="8" fill="none"/>
+              <rect x="60" y="150" width="60" height="42" fill="#DFE5F0" rx="3"/>
+              <rect x="240" y="160" width="80" height="52" fill="#DFE5F0" rx="3"/>
+              <rect x="50" y="240" width="90" height="60" fill="#DFE5F0" rx="3"/>
+              <rect x="400" y="200" width="70" height="52" fill="#DFE5F0" rx="3"/>
+            </svg>
+
+            <div style="position:absolute; left:38%; top:42%; transform:translate(-50%,-50%); width:180px; height:180px; border-radius:999px; border:1.5px dashed var(--blue); background:rgba(17,64,154,0.06);"></div>
+
+            <div class="marker avail marker-drift" style="left:34%; top:36%;" data-drift="1"><span class="ring"></span></div>
+            <div class="marker visit marker-drift" style="left:46%; top:52%;" data-drift="2"><span class="ring"></span></div>
+            <div class="marker avail marker-drift" style="left:28%; top:56%;" data-drift="3"><span class="ring"></span></div>
+            <div class="marker off"   style="left:76%; top:66%;"></div>
+            <div class="marker visit marker-drift" style="left:70%; top:32%;" data-drift="4"><span class="ring"></span></div>
+
+            <div class="geofence-notice">
+              <div class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a1 1 0 01.9.55l6 12A1 1 0 0114 15H2a1 1 0 01-.9-1.45l6-12A1 1 0 018 1zm0 4a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1zm0 6a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+              <div><strong style="color:var(--ink);">Zone alert</strong><br>Employee is outside the designated work area.</div>
+            </div>
+          </div>
+          <div class="loc-list">
+            <div class="row"><span class="av">RS</span><div><div class="name">Rahul S.</div></div><span class="pill green"><span class="d"></span> Available</span><span class="dist">0.8 km</span></div>
+            <div class="row"><span class="av">MK</span><div><div class="name">Meera K.</div></div><span class="pill blue"><span class="d"></span> On Visit</span><span class="dist">1.5 km</span></div>
+            <div class="row"><span class="av">AP</span><div><div class="name">Arjun P.</div></div><span class="pill gray"><span class="d"></span> Offline</span><span class="dist">2.2 km</span></div>
+          </div>
+          <div class="legend">
+            <span><span class="d" style="background:var(--green);"></span> Available</span>
+            <span><span class="d" style="background:var(--sky);"></span> On Visit</span>
+            <span><span class="d" style="background:#8492AE;"></span> Offline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5 · ATTENDANCE
+     ============================================================ -->
+<section id="attendance" class="bg-alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal att-visual">
+        <div class="kpis-3">
+          <div class="kpi"><div class="k-label">Present</div><div class="k-value" data-count="32">0</div></div>
+          <div class="kpi"><div class="k-label">Absent</div><div class="k-value" data-count="5">0</div></div>
+          <div class="kpi"><div class="k-label">On Leave</div><div class="k-value" data-count="3">0</div></div>
+        </div>
+        <div class="att-panel">
+          <div class="h"><div class="t">Today's attendance</div><div class="r">Wed · Sep 19</div></div>
+          <table class="tbl">
+            <thead><tr><th>Employee</th><th>Entry</th><th>Exit</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><div class="row-emp"><span class="av">RS</span> Rahul S.</div></td><td class="mono">08:00 AM</td><td class="mono">05:00 PM</td><td><span class="pill green"><span class="d"></span> Present</span></td></tr>
+              <tr><td><div class="row-emp"><span class="av">MK</span> Meera K.</div></td><td class="mono">08:12 AM</td><td class="mono">05:04 PM</td><td><span class="pill green"><span class="d"></span> Present</span></td></tr>
+              <tr><td><div class="row-emp"><span class="av">AP</span> Arjun P.</div></td><td class="mono">—</td><td class="mono">—</td><td><span class="pill red"><span class="d"></span> Absent</span></td></tr>
+              <tr><td><div class="row-emp"><span class="av">YB</span> Yousef B.</div></td><td class="mono">07:58 AM</td><td class="mono">05:02 PM</td><td><span class="pill green"><span class="d"></span> Present</span></td></tr>
+              <tr><td><div class="row-emp"><span class="av">PN</span> Priya N.</div></td><td class="mono">—</td><td class="mono">—</td><td><span class="pill amber"><span class="d"></span> On Leave</span></td></tr>
+            </tbody>
+          </table>
+          <div class="att-chart-wrap">
+            <div class="chart-h"><div class="t">Last 7 days</div><div style="font-size:12px; color:var(--muted); font-family:var(--font-mono);">Avg 91%</div></div>
+            <div class="bars">
+              <div><div class="bar" data-h="72"></div><div class="lbl">Thu</div></div>
+              <div><div class="bar" data-h="88"></div><div class="lbl">Fri</div></div>
+              <div><div class="bar" data-h="45" style="background:#99B4E0"></div><div class="lbl">Sat</div></div>
+              <div><div class="bar" data-h="93"></div><div class="lbl">Sun</div></div>
+              <div><div class="bar" data-h="95"></div><div class="lbl">Mon</div></div>
+              <div><div class="bar" data-h="90"></div><div class="lbl">Tue</div></div>
+              <div><div class="bar" data-h="97"></div><div class="lbl">Wed</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="eyebrow">Attendance</div>
+        <h2 style="margin-top:12px;">Attendance, Without the Guesswork.</h2>
+        <p class="lead" style="margin-top:16px;">Know who showed up, when they arrived, and when they left.</p>
+        <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Automatic check-in from the employee's phone.</span></li>
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Absent · Present · On Leave — the whole team at a glance.</span></li>
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Weekly and monthly reports export in one click.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6 · FIELD ACTIVITY
+     ============================================================ -->
+<section id="field-activity">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <div class="eyebrow">Shift activity</div>
+        <h2 style="margin-top:12px;">Live On-Shift Visibility &amp; Shift History.</h2>
+        <p class="lead" style="margin-top:16px;">Turn daily shifts into transparent, verifiable records.</p>
+        <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Every clock-in logged with precise timestamp and geofence verification.</span></li>
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Active on-shift staff visible in real time during duty hours.</span></li>
+          <li style="display:flex; gap:10px; color:var(--ink-2);"><svg style="flex-shrink:0;margin-top:4px;" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M2 8l4 4 8-8"/></svg><span>Daily shift history and hours ready for administrative review.</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="field-panel">
+          <div class="kpis-3">
+            <div class="kpi"><div class="k-label">Present Today</div><div class="k-value" data-count="32">0</div></div>
+            <div class="kpi"><div class="k-label">On Field Duty</div><div class="k-value" data-count="18">0</div></div>
+            <div class="kpi"><div class="k-label">Hours Logged</div><div class="k-value small"><span data-count="248">0</span> hrs</div></div>
+          </div>
+          <div class="field-progress">
+            <div class="top"><div class="t">Shift attendance rate</div><div class="v"><span data-count="94">0</span>%</div></div>
+            <div class="bar"><div data-w="94"></div></div>
+          </div>
+          <div class="field-timeline">
+            <div class="item"><div class="t">09:02</div><div class="body"><div class="name">Rahul S. — Main Branch</div><div class="m">Clocked In · Geofence Verified</div></div><span class="pill green"><span class="d"></span> In Zone</span></div>
+            <div class="item"><div class="t">09:15</div><div class="body"><div class="name">Meera K. — North Hub</div><div class="m">Clocked In · MPIN Verified</div></div><span class="pill blue"><span class="d"></span> On Duty</span></div>
+            <div class="item"><div class="t">10:00</div><div class="body"><div class="name">Arjun P. — Field Site 2</div><div class="m">On-Shift Location Active</div></div><span class="pill amber"><span class="d"></span> Live</span></div>
+            <div class="item"><div class="t">17:30</div><div class="body"><div class="name">Priya N. — South Hub</div><div class="m">Clocked Out · 8.5 hrs Logged</div></div><span class="pill gray"><span class="d"></span> Completed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7 · MANAGER DASHBOARD (navy)
+     ============================================================ -->
+<section id="dashboard" class="bg-navy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">Manager dashboard</div>
+      <h2 class="reveal" style="margin-top:12px;">Everything Your Managers Need. One Dashboard.</h2>
+      <p class="reveal" style="margin-top:14px;">Real-time KPIs, charts and activity — no page-hopping.</p>
+    </div>
+
+    <div class="dash-wrap reveal">
+      <div class="browser">
+        <div class="browser-bar">
+          <div class="dot3"><span></span><span></span><span></span></div>
+          <div class="url">attendadmin.ltabai.in</div>
+        </div>
+        <div class="app app-lg">
+          <aside class="app-sidebar">
+            <div class="brand"><img class="lm-img" src="assets/infield7-logo.png" alt="inFIELD7 logo" /> inFIELD7</div>
+            <nav>
+              <ul>
+                <li class="active"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span> Dashboard</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span> Employees</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></span> Attendance</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="10" r="3"/><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg></span> Live Map</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></span> Leave Requests</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span> Holidays</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Attendance Hours</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg></span> Shift Logs</li>
+                <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 20V10M10 20V4M16 20v-6M22 20V8"/></svg></span> Reports</li>
+              </ul>
+            </nav>
+          </aside>
+
+          <div class="app-main">
+            <div class="app-topbar">
+              <div style="display:flex; flex-direction:column;">
+                <span style="font-size:14px; font-weight:600; color:var(--ink);">Good afternoon, Layla</span>
+                <span style="font-size:11px; color:var(--muted);">Wednesday · Sep 19</span>
+              </div>
+              <div class="user">
+                <span class="pill green"><span class="d"></span> Live</span>
+                <span class="avatar">LA</span>
+              </div>
+            </div>
+            <div class="app-body">
+              <div class="kpis-8">
+                <div class="kpi"><div class="k-label">Present</div><div class="k-value" data-count="32">0</div><div class="k-delta">+3</div></div>
+                <div class="kpi"><div class="k-label">Absent</div><div class="k-value" data-count="5">0</div><div class="k-delta down">+1</div></div>
+                <div class="kpi"><div class="k-label">On Leave</div><div class="k-value" data-count="3">0</div><div class="k-delta">0</div></div>
+                <div class="kpi"><div class="k-label">Employees</div><div class="k-value" data-count="150">0</div><div class="k-delta">Active</div></div>
+                <div class="kpi"><div class="k-label">Hours Logged</div><div class="k-value small"><span data-count="1240" data-format="comma">0</span> hrs</div><div class="k-delta">On shift</div></div>
+                <div class="kpi"><div class="k-label">Shift Hours</div><div class="k-value small"><span data-count="8" data-format="comma">0</span>h avg</div><div class="k-delta">Regular</div></div>
+                <div class="kpi"><div class="k-label">Active Shifts</div><div class="k-value" data-count="30">0</div><div class="k-delta">+4</div></div>
+                <div class="kpi"><div class="k-label">Attendance</div><div class="k-value"><span data-count="91">0</span>%</div><div class="k-delta">+2%</div></div>
+              </div>
+
+              <div class="dash-charts">
+                <div class="panel">
+                  <div class="panel-h"><div class="t">Attendance · 7d</div><div class="m">91% avg</div></div>
+                  <div class="panel-b">
+                    <div class="bars" style="height:130px;">
+                      <div><div class="bar" data-h="72"></div><div class="lbl">Thu</div></div>
+                      <div><div class="bar" data-h="88"></div><div class="lbl">Fri</div></div>
+                      <div><div class="bar" data-h="45" style="background:#99B4E0"></div><div class="lbl">Sat</div></div>
+                      <div><div class="bar" data-h="93"></div><div class="lbl">Sun</div></div>
+                      <div><div class="bar" data-h="95"></div><div class="lbl">Mon</div></div>
+                      <div><div class="bar" data-h="90"></div><div class="lbl">Tue</div></div>
+                      <div><div class="bar" data-h="97"></div><div class="lbl">Wed</div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel">
+                  <div class="panel-h"><div class="t">Work Hours · 30d</div><div class="m">1,240 hrs</div></div>
+                  <div class="panel-b">
+                    <svg class="line-chart chart" viewBox="0 0 260 130" preserveAspectRatio="none" style="height:130px;">
+                      <path class="axis" d="M0 110 L260 110"/>
+                      <path class="area" d="M0 90 L26 82 L52 88 L78 68 L104 74 L130 58 L156 62 L182 46 L208 52 L234 32 L260 40 L260 110 L0 110 Z" opacity="0"/>
+                      <path class="line draw" d="M0 90 L26 82 L52 88 L78 68 L104 74 L130 58 L156 62 L182 46 L208 52 L234 32 L260 40"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="panel">
+                  <div class="panel-h"><div class="t">Shift distribution</div><div class="m">Sep</div></div>
+                  <div class="panel-b">
+                    <div class="donut">
+                      <svg width="90" height="90" viewBox="0 0 42 42">
+                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#EEF1F6" stroke-width="6"/>
+                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--blue)" stroke-width="6" stroke-dasharray="55 100" stroke-dashoffset="25" transform="rotate(-90 21 21)"/>
+                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--green)" stroke-width="6" stroke-dasharray="25 100" stroke-dashoffset="-30" transform="rotate(-90 21 21)"/>
+                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--amber)" stroke-width="6" stroke-dasharray="20 100" stroke-dashoffset="-55" transform="rotate(-90 21 21)"/>
+                      </svg>
+                      <div class="legend">
+                        <div><span class="sw" style="background:var(--blue);"></span>Regular 65%</div>
+                        <div><span class="sw" style="background:var(--green);"></span>Field Shift 20%</div>
+                        <div><span class="sw" style="background:var(--amber);"></span>Overtime 15%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel">
+                  <div class="panel-h"><div class="t">Shift check-ins</div><div class="m">184 check-ins</div></div>
+                  <div class="panel-b">
+                    <div class="bars" style="height:130px;">
+                      <div><div class="bar alt" data-h="40"></div><div class="lbl">M</div></div>
+                      <div><div class="bar alt" data-h="70"></div><div class="lbl">T</div></div>
+                      <div><div class="bar alt" data-h="55"></div><div class="lbl">W</div></div>
+                      <div><div class="bar alt" data-h="85"></div><div class="lbl">T</div></div>
+                      <div><div class="bar alt" data-h="90"></div><div class="lbl">F</div></div>
+                      <div><div class="bar alt" data-h="35"></div><div class="lbl">S</div></div>
+                      <div><div class="bar alt" data-h="60"></div><div class="lbl">S</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8 · ACCURATE HOURS FOR PAYROLL
+     ============================================================ -->
+<section id="pricing" class="bg-alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <div class="eyebrow">Hours &amp; Reports</div>
+        <h2 style="margin-top:12px;">Accurate Hours for Payroll.</h2>
+        <p class="lead" style="margin-top:16px;">Turn verified attendance into clean, exportable hour sheets.</p>
+        <p style="margin-top:16px; color:var(--ink-2);">Every clock-in, clock-out, and shift duration is accurately logged with timestamps. Export complete attendance and hour summaries ready for your accounting and payroll team.</p>
+      </div>
+      <div class="reveal">
+        <div class="pay-cards">
+          <div class="pay-card">
+            <div class="p">Daily Shift</div>
+            <div class="v"><span data-count="8">0</span> hrs</div>
+          </div>
+          <div class="pay-card hi">
+            <div class="p">Weekly Hours</div>
+            <div class="v"><span data-count="48">0</span> hrs</div>
+          </div>
+          <div class="pay-card">
+            <div class="p">Monthly Hours</div>
+            <div class="v"><span data-count="192">0</span> hrs</div>
+          </div>
+        </div>
+        <p class="pay-foot">Export verified shift records directly to Excel or CSV for fast payroll processing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9 · EVERYTHING IN ONE PLACE
+     ============================================================ -->
+<section id="modules">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">What the app does</div>
+      <h2 class="reveal" style="margin-top:12px;">Everything in One Place.</h2>
+      <p class="reveal" style="margin-top:12px;">Eight core features. Nothing you don't need.</p>
+    </div>
+    <div class="tiles tiles-4">
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M8 15l2 2 4-4"/></svg></div>
+        <div class="t">Clock in / Clock out</div>
+        <div class="d muted" style="font-size:14px;">Mark attendance from the office. The app checks you're inside the office area.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="7" stroke-dasharray="2 3"/></svg></div>
+        <div class="t">Office location check</div>
+        <div class="d muted" style="font-size:14px;">Clock-in works only within the allowed metres around the saved office location.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <div class="t">Live tracking on shift</div>
+        <div class="d muted" style="font-size:14px;">After clock-in, location continues in the background until clock-out.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H5a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2v-6a2 2 0 00-2-2h-4"/><path d="M12 3v11M8 7l4-4 4 4"/></svg></div>
+        <div class="t">Leave requests</div>
+        <div class="d muted" style="font-size:14px;">Apply for leave from the phone. Status shows pending, approved, or rejected.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/><circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+        <div class="t">Holidays &amp; history</div>
+        <div class="d muted" style="font-size:14px;">See company holidays and your past attendance.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+        <div class="t">MPIN lock</div>
+        <div class="d muted" style="font-size:14px;">Set a 4-digit MPIN after first login. Required whenever the app reopens.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20M6 22h12M9 18v4M15 18v4"/></svg></div>
+        <div class="t">Admin dashboard</div>
+        <div class="d muted" style="font-size:14px;">Office staff manage employees, attendance, live map, leaves and holidays from the web.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg></div>
+        <div class="t">Update notices</div>
+        <div class="d muted" style="font-size:14px;">When a new Play Store version is published, an in-app popup shows an Update button.</div>
+      </div>
+    </div>
+    <p class="tiles-cap reveal">One system. One source of truth.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     10 · HOW IT WORKS
+     ============================================================ -->
+<section id="how" class="bg-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">How it works</div>
+      <h2 class="reveal" style="margin-top:12px;">Simple for Your Team. Powerful for Managers.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">01</div>
+        <div class="t">Employees Check In</div>
+        <div class="d">Mark attendance and start the workday.</div>
+      </div>
+      <div class="step reveal">
+        <div class="n">02</div>
+        <div class="t">Shift Tracking Runs</div>
+        <div class="d">On-shift live location and work hours are automatically logged.</div>
+      </div>
+      <div class="step reveal">
+        <div class="n">03</div>
+        <div class="t">Managers Get Visibility</div>
+        <div class="d">One web dashboard for attendance status, leaves, and verified hours.</div>
+      </div>
+    </div>
+
+    <!-- 6-step login flow -->
+    <div class="section-sub reveal" style="margin-top:88px; text-align:center;">
+      <div class="eyebrow">How employees sign in</div>
+      <h3 style="margin-top:8px; font-size:26px; letter-spacing:-0.02em;">Six taps and you're in.</h3>
+      <p style="margin-top:10px; max-width:520px; margin-left:auto; margin-right:auto;">Registered phone number only. No email. No OTP maze.</p>
+    </div>
+    <ol class="login-steps">
+      <li class="reveal"><span class="ls-n">1</span><div><div class="ls-t">Open the app</div><div class="ls-d">Tap the icon on your phone.</div></div></li>
+      <li class="reveal"><span class="ls-n">2</span><div><div class="ls-t">Enter name &amp; phone</div><div class="ls-d">Use the phone number your office registered.</div></div></li>
+      <li class="reveal"><span class="ls-n">3</span><div><div class="ls-t">Pick your office</div><div class="ls-d">Choose the office location you belong to.</div></div></li>
+      <li class="reveal"><span class="ls-n">4</span><div><div class="ls-t">Accept T&amp;C + Privacy</div><div class="ls-d">Read once, accept once.</div></div></li>
+      <li class="reveal"><span class="ls-n">5</span><div><div class="ls-t">Set a 4-digit MPIN</div><div class="ls-d">Stays on your device. Never leaves it.</div></div></li>
+      <li class="reveal"><span class="ls-n">6</span><div><div class="ls-t">Next time: MPIN only</div><div class="ls-d">Forgot? Verify name + phone, set a new one.</div></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================
+     10B · WHY THE APP USES LOCATION
+     ============================================================ -->
+<section id="location-why">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <div class="eyebrow">Why the app uses location</div>
+        <h2 style="margin-top:12px;">Location, only for work attendance.</h2>
+        <p class="lead" style="margin-top:16px;">Clear rules. No ads. No marketing. No 24-hour tracking.</p>
+
+        <ul class="loc-rules">
+          <li>
+            <svg class="rule-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg>
+            <div><strong>At clock-in / clock-out</strong> — the app checks you're inside the office geofence.</div>
+          </li>
+          <li>
+            <svg class="rule-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg>
+            <div><strong>During your shift</strong> — location runs in the background until clock-out, so the office can see whether you're at the workplace.</div>
+          </li>
+          <li>
+            <svg class="rule-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg>
+            <div><strong>When you're clocked out</strong> — no location is collected. Never for ads or marketing.</div>
+          </li>
+          <li>
+            <svg class="rule-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg>
+            <div><strong>You can refuse</strong> — but then you can't clock in from the office or be tracked on shift.</div>
+          </li>
+        </ul>
+        <a href="privacy.html" class="btn btn-outline" style="margin-top:24px;">Read the full Privacy Policy
+          <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <div class="perm-card">
+          <div class="perm-h">
+            <div class="perm-h-t">App permissions</div>
+            <span class="pill blue"><span class="d"></span> Android</span>
+          </div>
+          <ul class="perm-list">
+            <li>
+              <div class="perm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg></div>
+              <div class="perm-b"><div class="perm-t">Precise / coarse location</div><div class="perm-d">Verify you're at the office.</div></div>
+            </li>
+            <li>
+              <div class="perm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><path d="M17 3l2 2M21 5l-2 2"/></svg></div>
+              <div class="perm-b"><div class="perm-t">Background location</div><div class="perm-d">Runs only while on shift, until clock-out.</div></div>
+            </li>
+            <li>
+              <div class="perm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 5v14M4 10h16"/></svg></div>
+              <div class="perm-b"><div class="perm-t">Foreground service</div><div class="perm-d">Keeps the shift-tracking alive.</div></div>
+            </li>
+            <li>
+              <div class="perm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1112 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 004 0"/></svg></div>
+              <div class="perm-b"><div class="perm-t">Notifications</div><div class="perm-d">Used strictly for shift tracking and app update notices.</div></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11 · WHO IT'S FOR
+     ============================================================ -->
+<section id="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">Who it's for</div>
+      <h2 class="reveal" style="margin-top:12px;">Built for offices and field teams.</h2>
+      <p class="reveal" style="margin-top:12px;">Same app, three clear roles. Work use only.</p>
+    </div>
+
+    <!-- Audience cards -->
+    <div class="who-cards who-cards-3" style="margin-top:0;">
+      <div class="who-card lg reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></div>
+        <div class="t">Employees</div>
+        <div class="d">Clock in, clock out, apply for leave, see holidays and your history.</div>
+      </div>
+      <div class="who-card lg reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+        <div class="t">Managers</div>
+        <div class="d">See today's attendance, pending leaves, and live location of staff who are on shift.</div>
+      </div>
+      <div class="who-card lg reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
+        <div class="t">Work use only</div>
+        <div class="d">Not a public social app. Only registered phone numbers can log in.</div>
+      </div>
+    </div>
+
+    <div class="section-sub reveal" style="margin-top:64px;">
+      <div class="eyebrow">By industry</div>
+      <h3 style="margin-top:8px; font-size:22px;">Built for Teams That Move.</h3>
+    </div>
+    <div class="who-cards" style="margin-top:32px;">
+      <div class="who-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M14 6.5a4 4 0 105.5 5.5l-9.8 9.8-2.8-2.8L16.5 9.7"/><path d="M4 4l4 4"/></svg></div>
+        <div class="t">Service Centers</div>
+        <div class="d">Coordinate technicians, attendance and service activity.</div>
+      </div>
+      <div class="who-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div>
+        <div class="t">Construction</div>
+        <div class="d">Know who's on-site and track workforce activity.</div>
+      </div>
+      <div class="who-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <div class="t">Healthcare</div>
+        <div class="d">Coordinate staff across facilities and shifts.</div>
+      </div>
+      <div class="who-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></div>
+        <div class="t">Field Operations</div>
+        <div class="d">Verify on-site attendance and shift location in real time.</div>
+      </div>
+      <div class="who-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="t">Multi-Branch Offices</div>
+        <div class="d">Manage attendance across multiple locations from one dashboard.</div>
+      </div>
+      <div class="who-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.5"/><circle cx="18.5" cy="18" r="1.5"/></svg></div>
+        <div class="t">Logistics &amp; Transport</div>
+        <div class="d">Confirm driver and staff duty shifts with location verification.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11B · DOWNLOAD (Android only)
+     ============================================================ -->
+<section id="download" class="bg-alt">
+  <div class="wrap">
+    <div class="dl-wrap">
+      <div class="reveal">
+        <div class="eyebrow">Download</div>
+        <h2 style="margin-top:12px;">inFIELD7 for Android.</h2>
+        <p class="lead" style="margin-top:14px;">Get it from the Play Store. Login only works with a registered phone number.</p>
+        <div class="dl-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.ankit.attendance" target="_blank" rel="noopener" class="dl-play">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M3.6 2.4c-.4.2-.6.6-.6 1.1v17c0 .5.2.9.6 1.1L14 11.5 3.6 2.4zm11.5 8L5.4 1.7l11 6.4-1.3 1.3zm4 3l-2.8-1.6-1.5 1.5 1.5 1.5 2.8-1.6c1-.6 1-2.2 0-2.8zM5.4 21.3L15.1 12l1.3 1.3-11 6.4c-.4.2-.9 0-1-.4z"/></svg>
+            <div>
+              <div class="dl-play-l">Get it on</div>
+              <div class="dl-play-t">Google Play</div>
+            </div>
+          </a>
+          <div class="dl-meta">
+            <div class="dl-meta-r"><span class="dl-meta-l">Package</span><code class="mono">com.ankit.attendance</code></div>
+            <div class="dl-meta-r"><span class="dl-meta-l">Platform</span><span>Android · No iOS yet</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal dl-visual">
+        <div class="dl-phone">
+          <div class="hp-frame">
+            <div class="hp-notch"></div>
+            <div class="hp-screen">
+              <img src="assets/mobile-ref-hd-2x.png" alt="inFIELD7 app on Android" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11C · CONTACT
+     ============================================================ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">Contact</div>
+      <h2 class="reveal" style="margin-top:12px;">We're here if you need us.</h2>
+    </div>
+    <div class="contact-cards">
+      <a href="mailto:kashyapnandan2021@gmail.com" class="contact-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <div class="cc-l">Email</div>
+        <div class="cc-v"><code class="mono">kashyapnandan2021@gmail.com</code></div>
+      </a>
+      <a href="tel:+916000683808" class="contact-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 20 20 0 01-8.6-3.1 19.5 19.5 0 01-6-6A20 20 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7l.5 3a2 2 0 01-.6 2L7.6 10a16 16 0 006 6l1.3-1.4a2 2 0 012-.5l3 .5a2 2 0 011.6 2z"/></svg></div>
+        <div class="cc-l">Phone</div>
+        <div class="cc-v"><code class="mono">+91 6000683808</code></div>
+      </a>
+      <div class="contact-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="cc-l">Address</div>
+        <div class="cc-v">BlueAnt Digitech, Opposite Brahmaputra Board, Near Jawa Showroom, Basistha, Guwahati, Assam, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12 · FINAL CTA
+     ============================================================ -->
+<section id="demo" class="bg-navy">
+  <div class="wrap">
+    <div class="final-cta reveal">
+      <h2>Manage Your Workforce. Smarter.</h2>
+      <p>Employees, geofenced attendance, live location, and shift hours in one platform.</p>
+      <div class="btns">
+        <a href="#contact" class="btn btn-white">
+          Contact Our Team
+          <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#download" class="btn btn-navy-outline">Download for Android</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><img class="logo-img" src="assets/infield7-logo.png" alt="inFIELD7" /> <span class="logo-word">inFIELD7</span></a>
+        <p>One platform for workforce visibility — geofenced clock-in, live location, leaves, holidays, and attendance hours.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#location-why">Location &amp; privacy</a>
+        <a href="#download">Download</a>
+        <a href="#demo">Book a demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#industries">Service centers</a>
+        <a href="#industries">Construction</a>
+        <a href="#industries">Healthcare</a>
+        <a href="#industries">Field operations</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="#location-why">Location use</a>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 inFIELD7. All rights reserved.</span>
+      <span>Enterprise workforce management</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ============================================================
+  // INTRO FLOW — 3-step interactive entry + navy reveal panel
+  //   Step 1: business type (single, auto-advance)
+  //   Step 2: business-specific questions (multi-select, dynamic)
+  //   Step 3: "we've solved it all" + form (business/contact/phone)
+  // ============================================================
+  var INTRO_KEY = 'inf7_intro_done_v1';
+  var ALWAYS_KEY = 'inf7_always_intro';
+  var REVEAL_MS = 2000;
+
+  // Business-specific question banks. Each entry: { icon, text }.
+  // Answers land in state.problems as free-form strings; the "we solved it all"
+  // summary maps each question to a solution chip via keyword match.
+  var BUSINESS_QUESTIONS = {
+    'Service Centers': [
+      { icon: 'people',     text: "How many technicians are actually available today?" },
+      { icon: 'pin',        text: "Are technicians present at their designated service branch or center?" },
+      { icon: 'check',      text: "Can you verify employees are actually at the attendance location?" },
+      { icon: 'calendar',   text: "Do you have visibility into technician attendance and shift hours?" },
+      { icon: 'clock',      text: "How much time is lost manually checking who is on duty?" }
+    ],
+    'Construction': [
+      { icon: 'people',     text: "How many workers are actually present at each site today?" },
+      { icon: 'clock',      text: "Who arrived, who left, and how many hours did they actually work?" },
+      { icon: 'pin',        text: "Are workers staying at the assigned site or leaving during hours?" },
+      { icon: 'check',      text: "Which workers are checked in at each site location?" },
+      { icon: 'money',      text: "Are daily hours verified for accurate payroll processing?" }
+    ],
+    'Healthcare': [
+      { icon: 'people',     text: "Do you know which doctors, nurses and staff are available right now?" },
+      { icon: 'pin',        text: "Can you see who is assigned to each ward or department?" },
+      { icon: 'check',      text: "Are staff actually present at their assigned workplace at check-in?" },
+      { icon: 'calendar',   text: "Can you track shift schedules and staff availability in one place?" },
+      { icon: 'alert',      text: "What happens when someone leaves their assigned area during a shift?" }
+    ],
+    'Field Operations': [
+      { icon: 'pin',        text: "Do you know where your field team is during active shift hours?" },
+      { icon: 'check',      text: "Can you verify that staff clock in within designated work areas?" },
+      { icon: 'calendar',   text: "Are employees completing their scheduled shift hours?" },
+      { icon: 'clock',      text: "How much time is lost manually checking on-duty attendance?" },
+      { icon: 'people',     text: "Can you see who is currently on shift across all operational locations?" }
+    ],
+    'Maintenance': [
+      { icon: 'people',     text: "How many technicians are on-shift and available right now?" },
+      { icon: 'pin',        text: "Are technicians actually on-site when they mark attendance?" },
+      { icon: 'clock',      text: "Can you verify shift start and end times accurately?" },
+      { icon: 'calendar',   text: "Do you have a single view of scheduled shifts and staff attendance?" }
+    ],
+    'Logistics': [
+      { icon: 'pin',        text: "Do you know where your drivers and crews are during their shifts?" },
+      { icon: 'check',      text: "Can you verify shift attendance at transit hubs and depots?" },
+      { icon: 'calendar',   text: "Are team members starting and ending shifts on schedule?" },
+      { icon: 'clock',      text: "How much time is lost coordinating attendance check-ins?" }
+    ],
+    'Other': [
+      { icon: 'people',     text: "Do you know who's actually working right now?" },
+      { icon: 'calendar',   text: "Is attendance tracked on paper or WhatsApp?" },
+      { icon: 'pin',        text: "Can you see where your field team is on shift?" },
+      { icon: 'check',      text: "Do you have visibility into daily attendance and leaves?" },
+      { icon: 'clock',      text: "Do shift hours take too long to calculate for payroll?" }
+    ]
+  };
+
+  // Icon glyph library for question cards (inline SVG bodies)
+  var ICONS = {
+    people:   '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/>',
+    pin:      '<circle cx="12" cy="10" r="3"/><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/>',
+    check:    '<path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/>',
+    calendar: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>',
+    clock:    '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    money:    '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><circle cx="12" cy="14" r="1.5" fill="currentColor" stroke="none"/>',
+    alert:    '<path d="M12 2l10 18H2z"/><path d="M12 9v4"/><circle cx="12" cy="16.5" r="0.7" fill="currentColor" stroke="none"/>',
+    chart:    '<path d="M4 20V10M10 20V4M16 20v-6M22 20V8"/>',
+    trending: '<path d="M4 20l4-8 5 4 7-12"/><path d="M14 4h6v6"/>'
+  };
+
+  // Keyword mapping: for each question, pick a solution chip.
+  function questionToSolution(txt) {
+    var t = txt.toLowerCase();
+    if (t.indexOf('available') >= 0 || t.indexOf('who is available') >= 0 || t.indexOf('are available') >= 0)
+      return 'Live present / absent / on-leave board';
+    if (t.indexOf('attendance') >= 0 || t.indexOf('arrived') >= 0 || t.indexOf('check-in') >= 0 || t.indexOf('clock') >= 0)
+      return 'Automatic check-in & check-out';
+    if (t.indexOf('where') >= 0 || t.indexOf('site') >= 0 || t.indexOf('assigned') >= 0 || t.indexOf('location') >= 0)
+      return 'Real-time on-shift location map';
+    if (t.indexOf('verify') >= 0 || t.indexOf('actually') >= 0 || t.indexOf('present') >= 0 || t.indexOf('leaving') >= 0)
+      return 'Office & geofence verification';
+    if (t.indexOf('shift') >= 0 || t.indexOf('schedule') >= 0 || t.indexOf('hours') >= 0)
+      return 'Accurate shift & hours records';
+    if (t.indexOf('wages') >= 0 || t.indexOf('payroll') >= 0 || t.indexOf('pay') >= 0)
+      return 'Attendance hours for payroll';
+    if (t.indexOf('activity') >= 0 || t.indexOf('performance') >= 0 || t.indexOf('measure') >= 0 || t.indexOf('progress') >= 0)
+      return 'Live workforce dashboard';
+    if (t.indexOf('time') >= 0 || t.indexOf('lost') >= 0 || t.indexOf('coordinating') >= 0)
+      return 'Instant team presence visibility';
+    return 'One dashboard, one source of truth';
+  }
+
+  // Dev tweaks
+  var devTweaks = document.getElementById('devTweaks');
+  var alwaysBox = document.getElementById('alwaysIntro');
+  var replayBtn = document.getElementById('replayIntro');
+  try {
+    var alwaysOn = localStorage.getItem(ALWAYS_KEY) === '1';
+    if (alwaysBox) alwaysBox.checked = alwaysOn;
+    if (alwaysBox) alwaysBox.addEventListener('change', function () {
+      if (alwaysBox.checked) localStorage.setItem(ALWAYS_KEY, '1');
+      else localStorage.removeItem(ALWAYS_KEY);
+    });
+    if (replayBtn) replayBtn.addEventListener('click', function () {
+      sessionStorage.removeItem(INTRO_KEY);
+      location.reload();
+    });
+  } catch (e) {}
+
+  // Always show intro on page load so questionnaire, form and reveal slideshow run
+  var shouldShowIntro = true;
+  try {
+    sessionStorage.removeItem(INTRO_KEY);
+  } catch (e) {}
+
+  var intro = document.getElementById('intro');
+  var revealPanel = document.getElementById('revealPanel');
+  var heroEyebrow = document.getElementById('heroEyebrow');
+
+  var state = {
+    businessType: null,   // set in step 1
+    problems: [],         // question strings selected in step 2
+    lead: null,           // form values from step 3
+    currentStep: 1
+  };
+
+  function updateProgress(step) {
+    var dots = intro.querySelectorAll('.intro-progress span');
+    dots.forEach(function (d) {
+      var n = parseInt(d.getAttribute('data-step'), 10);
+      d.classList.remove('active', 'done');
+      if (n < step) d.classList.add('done');
+      else if (n === step) d.classList.add('active');
+    });
+  }
+
+  function checkLeadFormValidity() {
+    var form = document.getElementById('leadForm');
+    if (!form) return false;
+    var btn = document.getElementById('leadSubmitBtn') || form.querySelector('button[type="submit"]');
+    var bInp = form.querySelector('input[name="business"]');
+    var cInp = form.querySelector('input[name="contact"]');
+    var pInp = form.querySelector('input[name="phone"]');
+
+    var b = (bInp && bInp.value ? bInp.value : '').trim();
+    var c = (cInp && cInp.value ? cInp.value : '').trim();
+    var p = (pInp && pInp.value ? pInp.value : '').trim();
+    var digits = p.replace(/\D/g, '');
+
+    // Details of each one are required, button stays disabled if empty
+    var isValid = b.length > 0 && c.length > 0 && digits.length >= 7;
+    if (btn) {
+      btn.disabled = !isValid;
+    }
+    return isValid;
+  }
+
+  function goToStep(next) {
+    var currentEl = intro.querySelector('.intro-step[data-step="' + state.currentStep + '"]');
+    var nextEl = intro.querySelector('.intro-step[data-step="' + next + '"]');
+    if (!currentEl || !nextEl) return;
+    currentEl.classList.add('is-leaving');
+    setTimeout(function () {
+      currentEl.hidden = true;
+      currentEl.classList.remove('is-leaving');
+      nextEl.hidden = false;
+      state.currentStep = next;
+      updateProgress(next);
+      if (next === 2) renderBusinessQuestions();
+      if (next === 3) {
+        renderSolutionChips();
+        if (typeof checkLeadFormValidity === 'function') checkLeadFormValidity();
+      }
+    }, 260);
+  }
+
+  // Build the step-2 question cards dynamically based on state.businessType
+  function renderBusinessQuestions() {
+    var grid = intro.querySelector('#probGrid');
+    if (!grid) return;
+    var biz = state.businessType || 'Other';
+    var qs = BUSINESS_QUESTIONS[biz] || BUSINESS_QUESTIONS['Other'];
+    grid.innerHTML = '';
+    state.problems = []; // reset if user came back
+
+    // Update heading with business-specific context
+    var heading = document.getElementById('step2Heading');
+    if (heading) heading.textContent = 'For a ' + biz.replace(/s$/, '').toLowerCase() + ' team, which of these are true?';
+
+    qs.forEach(function (q, i) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'intro-card';
+      btn.setAttribute('data-p', q.text);
+      btn.style.animationDelay = (i * 0.05) + 's';
+      btn.innerHTML =
+        '<span class="intro-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' + (ICONS[q.icon] || ICONS.check) + '</svg></span>' +
+        '<span class="intro-txt">' + q.text + '</span>' +
+        '<span class="intro-check" aria-hidden="true"></span>';
+      grid.appendChild(btn);
+    });
+
+    document.getElementById('step2Next').disabled = true;
+  }
+
+  function renderSolutionChips() {
+    var summaryLine = document.getElementById('summaryLine');
+    var chipsWrap = document.getElementById('solutionChips');
+    if (!chipsWrap) return;
+    var biz = state.businessType || 'your';
+    summaryLine.textContent = "We've built the tools your " + (biz === 'your' ? 'team' : biz + ' team') + ' needs to fix that.';
+
+    // Deduplicate solutions, preserving user's selection order
+    var seen = {};
+    var solutions = [];
+    state.problems.forEach(function (p) {
+      var s = questionToSolution(p);
+      if (s && !seen[s]) { seen[s] = true; solutions.push(s); }
+    });
+    if (solutions.length === 0) {
+      solutions = [
+        'Live present / absent / on-leave board',
+        'Real-time on-shift location map',
+        'Attendance hours for payroll'
+      ];
+    }
+    solutions = solutions.slice(0, 5);
+
+    chipsWrap.innerHTML = '';
+    solutions.forEach(function (text, i) {
+      var el = document.createElement('div');
+      el.className = 'intro-chip';
+      el.style.animationDelay = (i * 0.08) + 's';
+      el.innerHTML =
+        '<span class="cic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3 3 7-7"/></svg></span>' +
+        '<span>' + text + '</span>';
+      chipsWrap.appendChild(el);
+    });
+  }
+
+  function finishIntro() {
+    // Set eyebrow on the hero if a business type was picked
+    if (state.businessType && heroEyebrow) {
+      heroEyebrow.innerHTML = '<span class="he-dot"></span>Built for ' + state.businessType + ' teams';
+      heroEyebrow.hidden = false;
+    }
+    // Persist
+    try { sessionStorage.setItem(INTRO_KEY, '1'); } catch (e) {}
+
+    // Fade out intro, then wipe up reveal panel
+    intro.classList.add('is-hiding');
+    setTimeout(function () {
+      intro.hidden = true;
+      document.body.classList.remove('intro-open');
+      showRevealPanel();
+    }, 400);
+  }
+
+  // Dismiss-once guard so nothing can trap the user on the reveal screen
+  var revealDismissed = false;
+  function dismissRevealPanel() {
+    if (revealDismissed || !revealPanel) return;
+    revealDismissed = true;
+    revealPanel.classList.add('is-leaving');
+    setTimeout(function () {
+      revealPanel.hidden = true;
+      revealPanel.classList.remove('is-leaving');
+      window.scrollTo(0, 0);
+    }, 620);
+  }
+
+  function showRevealPanel() {
+    if (!revealPanel) return;
+    revealDismissed = false;
+    revealPanel.hidden = false;
+    // Auto-dismiss after REVEAL_MS, but also allow click / Esc / button
+    setTimeout(dismissRevealPanel, REVEAL_MS);
+
+    // Click anywhere on the panel dismisses immediately
+    revealPanel.addEventListener('click', dismissRevealPanel, { once: true });
+    // Explicit continue button
+    var contBtn = document.getElementById('rpContinue');
+    if (contBtn) contBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dismissRevealPanel();
+    }, { once: true });
+    // Esc / Enter / Space
+    var keyHandler = function (e) {
+      if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        dismissRevealPanel();
+        document.removeEventListener('keydown', keyHandler);
+      }
+    };
+    document.addEventListener('keydown', keyHandler);
+  }
+
+  function skipIntro() {
+    try { sessionStorage.setItem(INTRO_KEY, '1'); } catch (e) {}
+    intro.classList.add('is-hiding');
+    setTimeout(function () {
+      intro.hidden = true;
+      document.body.classList.remove('intro-open');
+      window.scrollTo(0, 0);
+    }, 400);
+  }
+
+  var introWired = false;
+  function openIntro() {
+    if (!intro) return;
+    state.currentStep = 1;
+    intro.classList.remove('is-hiding');
+    intro.hidden = false;
+    document.body.classList.add('intro-open');
+    updateProgress(1);
+
+    var steps = intro.querySelectorAll('.intro-step');
+    steps.forEach(function (s) {
+      var stepNum = s.getAttribute('data-step');
+      if (stepNum === '1') {
+        s.hidden = false;
+        s.classList.remove('is-leaving');
+      } else {
+        s.hidden = true;
+        s.classList.remove('is-leaving');
+      }
+    });
+
+    var bizGrid = document.getElementById('bizGrid');
+    if (bizGrid) {
+      bizGrid.querySelectorAll('.intro-card').forEach(function (c) { c.classList.remove('selected'); });
+    }
+  }
+
+  // Expose globally for replay
+  window.openIntro = openIntro;
+  window.replayIntro = openIntro;
+
+  function wireIntro() {
+    if (!intro) return;
+    intro.hidden = false;
+    document.body.classList.add('intro-open');
+    updateProgress(1);
+
+    if (introWired) return;
+    introWired = true;
+
+    // Step 1 — single-select business, auto-advance
+    var bizGrid = document.getElementById('bizGrid');
+    bizGrid.addEventListener('click', function (e) {
+      var card = e.target.closest('.intro-card');
+      if (!card) return;
+      bizGrid.querySelectorAll('.intro-card').forEach(function (c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.businessType = card.getAttribute('data-b');
+      setTimeout(function () { goToStep(2); }, 260);
+    });
+
+    // Step 2 — multi-select business-specific questions (delegated, since dynamic)
+    var probGrid = document.getElementById('probGrid');
+    var step2Next = document.getElementById('step2Next');
+    var step2Back = document.getElementById('step2Back');
+    probGrid.addEventListener('click', function (e) {
+      var card = e.target.closest('.intro-card');
+      if (!card) return;
+      card.classList.toggle('selected');
+      var p = card.getAttribute('data-p');
+      var idx = state.problems.indexOf(p);
+      if (idx >= 0) state.problems.splice(idx, 1);
+      else state.problems.push(p);
+      step2Next.disabled = state.problems.length === 0;
+    });
+    step2Next.addEventListener('click', function () { goToStep(3); });
+    step2Back.addEventListener('click', function () { goToStep(1); });
+
+    // Step 3 — form live validation and submission to WhatsApp (8822459466)
+    var leadForm = document.getElementById('leadForm');
+    var bInp = leadForm.querySelector('input[name="business"]');
+    var cInp = leadForm.querySelector('input[name="contact"]');
+    var pInp = leadForm.querySelector('input[name="phone"]');
+
+    [bInp, cInp, pInp].forEach(function (inp) {
+      if (!inp) return;
+      inp.addEventListener('input', checkLeadFormValidity);
+      inp.addEventListener('change', checkLeadFormValidity);
+      inp.addEventListener('keyup', checkLeadFormValidity);
+    });
+
+    // Initial check (keeps button disabled until details are entered)
+    checkLeadFormValidity();
+
+    leadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!checkLeadFormValidity()) {
+        return;
+      }
+
+      var fd = new FormData(leadForm);
+      var business = (fd.get('business') || '').toString().trim();
+      var contact  = (fd.get('contact')  || '').toString().trim();
+      var rawPhone = (fd.get('phone')    || '').toString().trim();
+      var cleanPhone = rawPhone.replace(/^(\+?91[\s-]*)?/, '').trim();
+
+      // Collect selected problem solutions or defaults
+      var solutions = [];
+      if (state.problems && state.problems.length > 0) {
+        state.problems.forEach(function (p) {
+          var s = questionToSolution(p);
+          if (s && solutions.indexOf(s) === -1) solutions.push(s);
+        });
+      }
+      if (solutions.length === 0) {
+        solutions = [
+          'Live present / absent / on-leave board',
+          'Real-time on-shift location map',
+          'Attendance hours for payroll'
+        ];
+      }
+
+      var solutionsFormatted = solutions.map(function (s) { return '• ' + s; }).join('\n');
+
+      // Structured Lead Object (stored in client-side DB)
+      state.lead = {
+        business: business,
+        contact: contact,
+        phone: '+91 ' + cleanPhone,
+        businessType: state.businessType || 'General Business',
+        problems: state.problems || [],
+        solutions: solutions,
+        timestamp: new Date().toISOString()
+      };
+
+      try { sessionStorage.setItem('inf7_lead', JSON.stringify(state.lead)); } catch (err) {}
+      try {
+        var existingLeads = JSON.parse(localStorage.getItem('inf7_leads_db') || '[]');
+        existingLeads.push(state.lead);
+        localStorage.setItem('inf7_leads_db', JSON.stringify(existingLeads));
+      } catch (err) {}
+
+      // WhatsApp Message matching the form layout
+      var waMessage =
+        '📋 *NEW LEAD — inFIELD7*\n' +
+        '━━━━━━━━━━━━━━━━━━━━\n' +
+        '*BUSINESS NAME:* ' + business + '\n' +
+        '*CONTACT NAME:* ' + contact + '\n' +
+        '*PHONE NUMBER:* +91 ' + cleanPhone + '\n\n' +
+        '*BUSINESS TYPE:* ' + (state.businessType || 'General Business') + '\n\n' +
+        '*BUILT FOR YOUR TEAM:*\n' + solutionsFormatted + '\n' +
+        '━━━━━━━━━━━━━━━━━━━━';
+
+      var whatsappNumber = '918822459466';
+      var whatsappUrl = 'https://api.whatsapp.com/send?phone=' + whatsappNumber + '&text=' + encodeURIComponent(waMessage);
+
+      // Open WhatsApp pre-filled chat
+      try {
+        var waWin = window.open(whatsappUrl, '_blank');
+        if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+          var link = document.createElement('a');
+          link.href = whatsappUrl;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      } catch (err) {
+        window.location.href = whatsappUrl;
+      }
+
+      // Smoothly advance to presentation reveal & main site
+      finishIntro();
+    });
+
+    // Skip
+    document.getElementById('introSkip').addEventListener('click', skipIntro);
+
+    // Esc to skip
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !intro.hidden) skipIntro();
+    });
+
+    // Hook up Book a Demo triggers to openIntro anytime
+    document.querySelectorAll('a[href="#demo"]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openIntro();
+      });
+    });
+  }
+
+  // Always initialize intro on page load
+  wireIntro();
+
+  // ---------- Nav: sticky border on scroll + mobile menu ----------
+  var nav = document.getElementById('nav');
+  var mm = document.getElementById('mm');
+  var hamb = document.getElementById('hamb');
+  function onScroll() {
+    if (window.scrollY > 8) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  hamb.addEventListener('click', function () {
+    var open = mm.classList.toggle('open');
+    hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mm.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') mm.classList.remove('open');
+  });
+
+  // ---------- Reveal + animation orchestrator ----------
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- Enhancements: directional + stagger + word split ----------
+  if (!reduced) {
+    // Directional entry for split-layout halves
+    document.querySelectorAll('.split').forEach(function (splitEl) {
+      var kids = splitEl.querySelectorAll(':scope > .reveal');
+      if (kids.length === 2) {
+        kids[0].classList.add('fade-left');
+        kids[1].classList.add('fade-right');
+      }
+    });
+
+    // Stagger children inside card grids
+    var staggerSelectors = ['.prob-cards', '.who-cards', '.tiles', '.pay-cards', '.steps', '.one-app-side', '.kpis', '.kpis-8', '.kpis-3', '.dash-charts'];
+    staggerSelectors.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (parent) {
+        var kids = parent.querySelectorAll(':scope > *');
+        kids.forEach(function (k, i) {
+          if (!k.classList.contains('reveal')) k.classList.add('reveal');
+          k.style.transitionDelay = (i * 0.08) + 's';
+        });
+      });
+    });
+
+    // Add scale-in vibe to icon cards
+    document.querySelectorAll('.tile, .who-card').forEach(function (el) {
+      el.classList.add('scale-in');
+    });
+
+    // Split H1 and H2 headings into words for stagger
+    document.querySelectorAll('h1, .section-head h2, .final-cta h2').forEach(function (h) {
+      if (h._split) return; h._split = true;
+      var words = h.textContent.split(/(\s+)/);
+      h.textContent = '';
+      words.forEach(function (w, i) {
+        if (/^\s+$/.test(w)) {
+          h.appendChild(document.createTextNode(w));
+        } else {
+          var s = document.createElement('span');
+          s.className = 'rw';
+          s.style.transitionDelay = (i * 0.05) + 's';
+          s.textContent = w;
+          h.appendChild(s);
+        }
+      });
+      h.classList.add('split-words');
+    });
+  }
+
+  // Pre-hide reveal elements so we don't flash unanimated content.
+  // If IO fails/stalls, we reveal everything after 1.5s.
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (!reduced) reveals.forEach(function (el) { el.classList.add('pre'); });
+
+  function showReveal(el, delay) {
+    if (reduced) { el.classList.remove('pre'); el.classList.add('in'); return; }
+    setTimeout(function () {
+      el.classList.remove('pre');
+      el.classList.add('in');
+    }, delay || 0);
+  }
+
+  // Count-up
+  function countUp(el) {
+    if (el._done) return; el._done = true;
+    var target = parseFloat(el.getAttribute('data-count'));
+    var format = el.getAttribute('data-format');
+    var dur = 1300;
+    if (reduced) {
+      el.textContent = format === 'comma' ? target.toLocaleString('en-US') : String(target);
+      return;
+    }
+    var t0 = performance.now();
+    function tick(now) {
+      var p = Math.min(1, (now - t0) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var v = Math.round(target * eased);
+      el.textContent = format === 'comma' ? v.toLocaleString('en-US') : String(v);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Bars
+  function growBars(root) {
+    var bars = root.querySelectorAll('.bar[data-h]');
+    bars.forEach(function (b, i) {
+      if (b._done) return; b._done = true;
+      var h = parseInt(b.getAttribute('data-h'), 10);
+      if (reduced) { b.style.height = h + '%'; return; }
+      setTimeout(function () { b.style.height = h + '%'; }, i * 60);
+    });
+  }
+
+  // Line chart draw
+  function drawLine(root) {
+    var lines = root.querySelectorAll('.line-chart .line');
+    lines.forEach(function (p) {
+      if (p._done) return; p._done = true;
+      var len = p.getTotalLength();
+      if (reduced) return;
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+      p.getBoundingClientRect(); // reflow
+      p.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1)';
+      p.style.strokeDashoffset = '0';
+      var area = root.querySelector('.line-chart .area');
+      if (area) { area.style.transition = 'opacity 1s ease .6s'; area.style.opacity = '1'; }
+    });
+  }
+
+  // Field progress bar
+  function growProgress(root) {
+    var bars = root.querySelectorAll('.field-progress .bar > div[data-w]');
+    bars.forEach(function (b) {
+      if (b._done) return; b._done = true;
+      var w = parseInt(b.getAttribute('data-w'), 10);
+      if (reduced) { b.style.width = w + '%'; return; }
+      setTimeout(function () { b.style.width = w + '%'; }, 200);
+    });
+  }
+
+  // Marker drift (slow, gentle)
+  function driftMarkers(root) {
+    var ms = root.querySelectorAll('.marker-drift');
+    ms.forEach(function (m) {
+      if (m._drifting) return; m._drifting = true;
+      if (reduced) return;
+      function step() {
+        var dx = (Math.random() * 12 - 6).toFixed(1);
+        var dy = (Math.random() * 12 - 6).toFixed(1);
+        m.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+        setTimeout(step, 4000 + Math.random() * 2000);
+      }
+      setTimeout(step, Math.random() * 1500);
+    });
+  }
+
+  // Watch each animation zone
+  function watchZone(el, cb) {
+    if (typeof IntersectionObserver === 'undefined') { cb(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { cb(); io.disconnect(); }});
+    }, { threshold: 0.2 });
+    io.observe(el);
+  }
+
+  // Kick off: attach observers
+  reveals.forEach(function (el) {
+    if (typeof IntersectionObserver === 'undefined') { showReveal(el); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { showReveal(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    io.observe(el);
+  });
+
+  // Count-up per number
+  var counters = document.querySelectorAll('[data-count]');
+  counters.forEach(function (el) {
+    watchZone(el, function () { countUp(el); });
+  });
+
+  // Bars per chart
+  document.querySelectorAll('.bars').forEach(function (root) {
+    watchZone(root, function () { growBars(root); });
+  });
+
+  // Line charts
+  document.querySelectorAll('.line-chart').forEach(function (root) {
+    watchZone(root, function () { drawLine(root); });
+  });
+
+  // Field progress
+  document.querySelectorAll('.field-progress').forEach(function (root) {
+    watchZone(root, function () { growProgress(root); });
+  });
+
+  // Marker drift
+  document.querySelectorAll('.mini-map, .loc-map').forEach(function (root) {
+    watchZone(root, function () { driftMarkers(root); });
+  });
+
+  // Split-word headings — fade in words as heading enters view
+  document.querySelectorAll('.split-words').forEach(function (h) {
+    watchZone(h, function () { h.classList.add('in'); });
+  });
+
+  // Steps connector — flip to blue when steps section enters view
+  document.querySelectorAll('.steps').forEach(function (s) {
+    watchZone(s, function () { s.classList.add('in'); });
+  });
+
+  // Safety: after 1.5s reveal any stuck .pre
+  setTimeout(function () {
+    document.querySelectorAll('.reveal.pre').forEach(function (el) {
+      el.classList.remove('pre'); el.classList.add('in');
+    });
+  }, 1500);
+})();
+</script>
+
+</body>
+</html>
