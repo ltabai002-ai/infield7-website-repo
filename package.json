@@ -1,26 +1,28 @@
 {
-  "name": "/dev-server",
-  "module": "index.ts",
-  "type": "module",
+  "name": "infield7-site",
+  "version": "1.0.0",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "start": "vite --host 0.0.0.0"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.21",
+    "@tanstack/react-router": "^1.166.3",
+    "@tanstack/react-start": "^1.166.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@tanstack/react-query": "^5",
-    "@tanstack/react-router": "^1",
-    "@tanstack/react-router-devtools": "^1",
-    "@tanstack/react-start": "^1",
-    "@vitejs/plugin-react": "^6.1.1",
-    "react": "^19",
-    "react-dom": "^19",
-    "tailwindcss": "^4",
-    "vite": "^7",
-    "vite-tsconfig-paths": "^6.1.1",
-    "zod": "^4.6.5"
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-tsconfig-paths": "^6.1.1"
   }
 }
