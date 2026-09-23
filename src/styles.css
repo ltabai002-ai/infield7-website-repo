@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* ============================================================
    Workforce OS — Marketing site
    ============================================================ */
@@ -1755,3 +1756,5 @@ footer { border-top: 1px solid var(--line); background: white; padding: 56px 0 3
   font-size: 13px; color: var(--muted); margin-bottom: 24px;
 }
 .legal-page .legal-back:hover { color: var(--blue); }
+/* React migration compatibility */
+[data-react-section] { display: contents; }
