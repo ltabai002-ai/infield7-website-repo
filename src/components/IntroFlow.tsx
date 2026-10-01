@@ -36,7 +36,7 @@ export function IntroFlow({ open, onClose, onComplete }: Props) {
     try { sessionStorage.setItem("inf7_lead", JSON.stringify(record)); const list = JSON.parse(localStorage.getItem("inf7_leads_db") || "[]") as unknown[]; list.push(record); localStorage.setItem("inf7_leads_db", JSON.stringify(list)); } catch { /* storage may be unavailable */ }
     const rows = solutions.map(s => `• ${s}`).join("\n");
     const message = `📋 *NEW LEAD — inFIELD7*\n━━━━━━━━━━━━━━━━━━━━\n*BUSINESS NAME:* ${lead.business.trim()}\n*CONTACT NAME:* ${lead.contact.trim()}\n*PHONE NUMBER:* +91 ${cleanPhone}\n\n*BUSINESS TYPE:* ${business}\n\n*BUILT FOR YOUR TEAM:*\n${rows}\n━━━━━━━━━━━━━━━━━━━━`;
-    window.open(`https://api.whatsapp.com/send?phone=918822459466&text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    window.open(`https://api.whatsapp.com/send?phone=919164060961&text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     sessionStorage.setItem("inf7_intro_done_v1", "1"); onComplete(business);
   };
   return <div className="intro" role="dialog" aria-modal="true" aria-label="Welcome — quick questions">
@@ -54,7 +54,7 @@ export function IntroFlow({ open, onClose, onComplete }: Props) {
         <div className="intro-form-wrap"><form className="intro-form" noValidate onSubmit={submit}>
           <label className="intro-field"><span className="intro-field-l">Business name</span><input name="business" autoComplete="organization" placeholder="e.g. Kumar Motors" required value={lead.business} onChange={e => setLead({...lead,business:e.target.value})}/></label>
           <label className="intro-field"><span className="intro-field-l">Contact name</span><input name="contact" autoComplete="name" placeholder="Your full name" required value={lead.contact} onChange={e => setLead({...lead,contact:e.target.value})}/></label>
-          <div className="intro-field"><label className="intro-field-l" htmlFor="leadPhone">Phone number</label><div className="intro-phone-wrap"><span className="intro-phone-cc" aria-hidden="true">+91</span><input id="leadPhone" type="tel" name="phone" maxLength={15} autoComplete="tel-national" placeholder="98765 43210" required value={lead.phone} onChange={e => setLead({...lead,phone:e.target.value})}/></div></div>
+          <div className="intro-field"><label className="intro-field-l" htmlFor="leadPhone">Phone number</label><div className="intro-phone-wrap"><span className="intro-phone-cc" aria-hidden="true">+91</span><input id="leadPhone" type="tel" name="phone" maxLength={15} autoComplete="tel-national" placeholder="9164060961" required value={lead.phone} onChange={e => setLead({...lead,phone:e.target.value})}/></div></div>
           <button type="submit" className="btn btn-primary intro-form-cta" disabled={!valid}>Show me the platform<Arrow/></button><p className="intro-form-fine">We'll call you within an hour. No spam.</p>
         </form><aside className="intro-solutions"><div className="intro-solutions-l">Built for your team</div><div className="intro-chips" aria-live="polite">{solutions.map((text,i) => <div className="intro-chip" key={text} style={{animationDelay:`${i*.08}s`}}><span className="cic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M3 8l3 3 7-7"/></svg></span><span>{text}</span></div>)}</div></aside></div>
       </div>}
