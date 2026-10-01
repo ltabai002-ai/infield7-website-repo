@@ -6,6 +6,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   server: { port: 8080 },
-  ssr: { noExternal: true, external: ["react", "react-dom"] },
+  ssr: { noExternal: true, external: ["react", "react-dom", "use-sync-external-store"] },
   plugins: [tsconfigPaths(), tailwindcss(), tanstackStart(), react()],
 });
